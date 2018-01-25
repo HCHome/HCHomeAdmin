@@ -22,4 +22,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/post_admin', 'PostController@index');
+
 Route::delete('/delete_usr/{user}', 'UserController@delete');
