@@ -24,4 +24,12 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/post_admin', 'PostController@index');
 
+Route::post('/post_up/{post_id}', 'PostController@up');
+
+Route::post('/post_down/{post_id}', 'PostController@down');
+
+Route::post('/upload', 'HomeController@upload');
+
 Route::delete('/delete_usr/{user}', 'UserController@delete');
+
+Route::delete('/delete_post/{post}', 'PostController@delete');

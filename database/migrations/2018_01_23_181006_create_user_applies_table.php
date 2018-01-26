@@ -18,6 +18,7 @@ class CreateUserAppliesTable extends Migration
             $table->integer('term');
             $table->string('name');
             $table->string('apply_message');
+            $table->string('wechat_identify');
             $table->timestamp('created_at');
         });
     }

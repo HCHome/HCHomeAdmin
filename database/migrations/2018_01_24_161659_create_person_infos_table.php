@@ -17,6 +17,9 @@ class CreatePersonInfosTable extends Migration
             $table->increments('info_id');
             $table->string('name');
             $table->integer('term');
+            $table->string('gender')->nullable();
+            $table->string('school')->nullable();
+            $table->string('major')->nullable();
             $table->string('verification_code');
             $table->timestamps();
         });

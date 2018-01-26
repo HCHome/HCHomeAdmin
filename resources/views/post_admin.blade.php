@@ -9,7 +9,9 @@
         <div class="admin-content">
 
             <div class="am-cf am-padding">
-                <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">表格</strong> / <small>Table</small></div>
+                <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">帖子管理</strong> /
+                    <small>Post admin</small>
+                </div>
             </div>
 
             <div class="am-g">
@@ -17,21 +19,20 @@
                     <div class="am-fl am-cf">
                         <div class="am-btn-toolbar am-fl">
                             <div class="am-btn-group am-btn-group-xs">
-                                <button type="button" class="am-btn am-btn-default"><span class="am-icon-plus"></span> 新增</button>
-                                <button type="button" class="am-btn am-btn-default"><span class="am-icon-save"></span> 保存</button>
-                                <button type="button" class="am-btn am-btn-default"><span class="am-icon-archive"></span> 审核</button>
-                                <button type="button" class="am-btn am-btn-default"><span class="am-icon-trash-o"></span> 删除</button>
+                                {{--<button type="button" class="am-btn am-btn-default"><span class="am-icon-plus"></span> 新增</button>--}}
+                                {{--<button type="button" class="am-btn am-btn-default"><span class="am-icon-save"></span> 保存</button>--}}
+                                {{--<button type="button" class="am-btn am-btn-default"><span class="am-icon-archive"></span> 审核</button>--}}
+                                <button class="am-btn am-btn-danger am-btn-xs"><span
+                                            class="am-icon-trash-o"></span> 批量删除
+                                </button>
                             </div>
 
                             <div class="am-form-group am-margin-left am-fl">
                                 <select>
                                     <option value="option1">所有类别</option>
                                     <option value="option2">IT业界</option>
-                                    <option value="option3">数码产品</option>
-                                    <option value="option3">笔记本电脑</option>
-                                    <option value="option3">平板电脑</option>
-                                    <option value="option3">只能手机</option>
-                                    <option value="option3">超极本</option>
+                                    <option value="option3">情感</option>
+
                                 </select>
                             </div>
                         </div>
@@ -55,29 +56,54 @@
                         <table class="am-table am-table-striped am-table-hover table-main">
                             <thead>
                             <tr>
-                                <th class="table-check"><input type="checkbox" /></th><th class="table-id">ID</th><th class="table-title">标题</th><th class="table-type">类别</th><th class="table-author">作者</th><th class="table-date">修改日期</th><th class="table-set">操作</th>
+                                <th class="table-check"></th>
+                                <th class="table-id">ID</th>
+                                <th class="table-title">标题</th>
+                                <th class="table-type">类别</th>
+                                <th class="table-author">作者</th>
+                                <th class="table-date">修改日期</th>
+                                <th class="table-set">操作</th>
                             </tr>
                             </thead>
                             <tbody>
                             @foreach($posts as $post)
-                            <tr>
-                                {{--TODO postVO 封裝--}}
-                                <td><input type="checkbox" /></td>
-                                <td>{{$post->id}}</td>
-                                <td>{{$post->title}}</td>
-                                <td>{{$post->category}}</td>
-                                <td>{{$post->user_name}}</td>
-                                <td>{{$post->created_at}}</td>
-                                <td>
-                                    <div class="am-btn-toolbar">
-                                        <div class="am-btn-group am-btn-group-xs">
-                                            {{--<button class="am-btn am-btn-default am-btn-xs am-text-secondary"><span class="am-icon-pencil-square-o"></span> 编辑</button>--}}
-                                            {{--<button class="am-btn am-btn-default am-btn-xs"><span class="am-icon-copy"></span> 复制</button>--}}
-                                            <button class="am-btn am-btn-default am-btn-xs am-text-danger"><span class="am-icon-trash-o"></span> 删除</button>
+                                <tr>
+                                    <td><input type="checkbox"/></td>
+                                    <td>{{$post->post_id}}</td>
+                                    <td>{{$post->title}}</td>
+                                    <td>{{$post->category}}</td>
+                                    <td>{{$post->nickname}}</td>
+                                    <td>{{$post->updated_at}}</td>
+                                    <td>
+                                        <div class="am-btn-toolbar">
+                                            <div class="am-btn-group am-btn-group-xs">
+                                                {{--<button class="am-btn am-btn-default am-btn-xs am-text-secondary"><span class="am-icon-pencil-square-o"></span> 编辑</button>--}}
+                                                <form method="post" action="/post_up/{{$post->post_id}}"
+                                                      class="btn-group">
+                                                    {{ csrf_field() }}
+                                                    <button type="submit" class="am-btn am-btn-default am-btn-xs"><span
+                                                                class="am-icon-arrow-up"></span> 置顶
+                                                    </button>
+
+                                                </form>
+                                                <form method="post" action="/post_down/{{$post->post_id}}"
+                                                      class="btn-group">
+                                                    <button type="submit" class="am-btn am-btn-default am-btn-xs"><span
+                                                                class="am-icon-arrow-down"></span> 取消置顶
+                                                    </button>
+                                                </form>
+                                                <form class="btn-group">
+                                                    <a href="/delete_post/{{$post->post_id}}" type='submit'
+                                                       data-method="delete"
+                                                       data-token="{{csrf_token()}}" data-confirm="三思而后行~覆水难收"
+                                                       class="am-btn am-btn-danger am-btn-xs">
+                                                        <span class="am-icon-trash-o"></span>删除
+                                                    </a>
+                                                </form>
+                                            </div>
                                         </div>
-                                    </div>
-                                </td>
-                            </tr>
+                                    </td>
+                                </tr>
                             @endforeach
                             </tbody>
                         </table>
@@ -95,8 +121,8 @@
                                 </ul>
                             </div>
                         </div>
-                        <hr />
-                        <p>注：.....</p>
+                        <hr/>
+                        <p>注：别瞎删哦，考虑每个人的话语权~~求同存异</p>
                     </form>
                 </div>
 

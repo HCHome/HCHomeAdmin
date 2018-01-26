@@ -17,8 +17,19 @@
             <ul class="am-avg-sm-1 am-avg-md-4 am-margin am-padding am-text-center admin-content-list ">
                 <li><a href="/post_admin" class="am-text-success"><span
                                 class="am-icon-btn am-icon-file-text"></span><br/>发帖管理<br/>2300</a></li>
-                <li><a href="#" class="am-text-warning"><span
-                                class="am-icon-btn am-icon-briefcase"></span><br/>文件上传<br/>308</a></li>
+                <li>
+                    <form method="post" action="/upload" enctype="multipart/form-data">
+                        <button type="submit" class="am-btn am-text-warning am-text-sm" style="background: white"><span
+                                    class="am-icon-btn am-icon-briefcase"></span> 潮友信息上传
+                        </button>
+                        <input id="file_upload" name="file_upload" type="file" multiple="true" required style="padding-left: 3em">
+                        {{ csrf_field() }}
+
+                    </form>
+
+                    {{--<a href="#" class="am-text-warning"><span--}}
+                                {{--class="am-icon-btn am-icon-briefcase"></span><br/>文件上传<br/>308</a>--}}
+                </li>
                 <li><a href="#" class="am-text-danger"><span class="am-icon-btn am-icon-recycle"></span><br/>昨日访问<br/>80</a>
                 </li>
                 <li><a href="#user" class="am-text-secondary"><span
@@ -47,8 +58,8 @@
                                 <td>
                                     <a href="/delete_usr/{{$user->user_id}}" type='submit' data-method="delete"
                                        data-token="{{csrf_token()}}" data-confirm="Are you sure?"
-                                       class="btn btn-danger">
-                                        删除
+                                       class="am-btn am-btn-danger am-btn-xs" style="color: white">
+                                        <span class="am-icon-trash-o"></span>删除
                                     </a>
                                 </td>
                             @endforeach
