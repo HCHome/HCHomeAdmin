@@ -49,8 +49,8 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr id="user">
-                            @foreach($users as $user)
+                        @foreach($users as $user)
+                            <tr id="user">
                                 <td>{{$user->user_id}}</td>
                                 <td>{{$user->nickname}}</td>
                                 <td><span class="am-badge am-badge-success">{{$user->sign_score}}</span></td>
@@ -62,8 +62,8 @@
                                         <span class="am-icon-trash-o"></span>删除
                                     </a>
                                 </td>
-                            @endforeach
-                        </tr>
+                            </tr>
+                        @endforeach
                         </tbody>
                     </table>
                 </div>
