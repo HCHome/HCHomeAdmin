@@ -69,7 +69,11 @@
                             @foreach($posts as $post)
                                 <tr>
                                     <td><input type="checkbox"/></td>
-                                    <td>{{$post->post_id}}</td>
+                                    <td>
+                                        @if($post->is_top==1)
+                                            <span class="am-icon-arrow-up"></span>
+                                        @endif
+                                        {{$post->post_id}}</td>
                                     <td>{{$post->title}}</td>
                                     <td>{{$post->category}}</td>
                                     <td>{{$post->nickname}}</td>
@@ -81,13 +85,13 @@
                                                 <form method="post" action="/post_up/{{$post->post_id}}"
                                                       class="btn-group">
                                                     {{ csrf_field() }}
-                                                    <button type="submit" class="am-btn am-btn-default am-btn-xs"><span
-                                                                class="am-icon-arrow-up"></span> 置顶
+                                                    <button type="submit" class="am-btn am-btn-default am-btn-xs">
+                                                        <span class="am-icon-arrow-up"></span> 置顶
                                                     </button>
-
                                                 </form>
                                                 <form method="post" action="/post_down/{{$post->post_id}}"
                                                       class="btn-group">
+                                                    {{ csrf_field() }}
                                                     <button type="submit" class="am-btn am-btn-default am-btn-xs"><span
                                                                 class="am-icon-arrow-down"></span> 取消置顶
                                                     </button>
@@ -126,7 +130,7 @@
                     </form>
                 </div>
 
-            </div>
+            </div>.
         </div>
     </div>
 @endsection

@@ -122,7 +122,6 @@
                                             {{$apply->apply_message}}
                                         </div>
                                         <div class="am-cf">
-
                                             <div class="am-fr">
                                                 <div class="am-btn-group am-btn-group-xs">
                                                     <button type="button" class="am-btn am-btn-default"><span
@@ -144,7 +143,6 @@
                         <div class="am-panel-bd am-collapse am-in am-cf" id="collapse-panel-3">
                             <ul class="am-comments-list admin-content-comment">
                                 @foreach($feedback as $back)
-
                                     <li class="am-comment">
                                         {{--<a href="#"><img--}}
                                         {{--src="http://amui.qiniudn.com/bw-2014-06-19.jpg?imageView/1/w/96/h/96"--}}
