@@ -26,6 +26,8 @@ Route::get('/post_admin', 'PostController@index');
 
 Route::post('/add_user/{apply_id}','HomeController@add');
 
+Route::delete('/delete_apply/{apply_id}','HomeController@delete');
+
 Route::post('/post_up/{post_id}', 'PostController@up');
 
 Route::post('/post_down/{post_id}', 'PostController@down');
