@@ -24,6 +24,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/post_admin', 'PostController@index');
 
+Route::post('/add_user/{apply_id}','HomeController@add');
+
 Route::post('/post_up/{post_id}', 'PostController@up');
 
 Route::post('/post_down/{post_id}', 'PostController@down');

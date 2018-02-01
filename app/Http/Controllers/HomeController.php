@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\person_info;
+use App\user_apply;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use PhpOffice\PhpSpreadsheet\Reader\Exception;
@@ -42,14 +43,14 @@ class HomeController extends AuthedController
             $worksheet = $spreadsheet->getActiveSheet();
             $highestRow = $worksheet->getHighestRow();
             for ($row = 2; $row <= $highestRow; ++$row) {
-                    $info = new person_info();
-                    $info->term = $worksheet->getCellByColumnAndRow(1, $row)->getValue();
-                    $info->name = $worksheet->getCellByColumnAndRow(2, $row)->getValue();
-                    $info->gender = $worksheet->getCellByColumnAndRow(3, $row)->getValue();
-                    $info->school = $worksheet->getCellByColumnAndRow(4, $row)->getValue();
-                    $info->major = $worksheet->getCellByColumnAndRow(5, $row)->getValue();
-                    $info->verification_code = hash('md5',$info->term . $info->name);
-                    $info->save();
+                $info = new person_info();
+                $info->term = $worksheet->getCellByColumnAndRow(1, $row)->getValue();
+                $info->name = $worksheet->getCellByColumnAndRow(2, $row)->getValue();
+                $info->gender = $worksheet->getCellByColumnAndRow(3, $row)->getValue();
+                $info->school = $worksheet->getCellByColumnAndRow(4, $row)->getValue();
+                $info->major = $worksheet->getCellByColumnAndRow(5, $row)->getValue();
+                $info->verification_code = hash('md5', $info->term . $info->name);
+                $info->save();
 
             }
 
@@ -60,5 +61,21 @@ class HomeController extends AuthedController
         }
 
         return redirect('/home');
+    }
+
+    public function add($apply_id)
+    {
+        $apply = DB::table('user_applies')->where('apply_id', $apply_id)->get()[0];
+        DB::table('users')->insert([['nickname' => $apply->name, 'sign_score' => 0, 'info_id' => 0, 'password' => '', 'wechat_identify' => $apply->wechat_identify, 'avatar' => $apply->avatar]]);
+        user_apply::destroy($apply_id);
+        return redirect('/home');
+
+    }
+
+    public function delete($apply_id)
+    {
+        user_apply::destroy($apply_id);
+        return redirect('/home');
+
     }
 }
