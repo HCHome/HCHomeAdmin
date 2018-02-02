@@ -123,22 +123,21 @@
                                         </div>
                                         <div class="am-cf">
                                             <div class="am-fr">
-                                                {{--<div class="am-btn-group am-btn-group-xs">--}}
+                                                <div class="am-btn-group am-btn-group-xs">
                                                     <form method="post" action="/add_user/{{$apply->apply_id}}"
-                                                          class="am-btn-group">
+                                                          class="btn-group">
                                                         {{ csrf_field() }}
-                                                        <button class="am-btn am-btn-default am-btn-xs"><span
+                                                        <button class="am-btn am-btn-default"><span
                                                                     class="am-icon-check"></span></button>
                                                     </form>
-                                                    <form class="am-btn-group">
-                                                        <a href="/delete_apply/{{$apply->apply_id}}" type='submit'
-                                                           data-method="delete"
-                                                           data-token="{{csrf_token()}}" data-confirm="三思而后行~覆水难收"
-                                                           class="am-btn am-btn-danger am-btn-xs">
-                                                            <span class="am-icon-trash-o"></span>
-                                                        </a>
+                                                    <form method="post" action="/delete_apply/{{$apply->apply_id}}"
+                                                          class="btn-group">
+                                                        {{ csrf_field() }}
+                                                        {{ method_field('DELETE') }}
+                                                        <button class="am-btn am-btn-default"><span
+                                                                class="am-icon-times"></span></button>
                                                     </form>
-                                                {{--</div>--}}
+                                                </div>
                                             </div>
                                         </div>
                                     </li>

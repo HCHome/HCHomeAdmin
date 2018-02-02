@@ -19,9 +19,6 @@
                     <div class="am-fl am-cf">
                         <div class="am-btn-toolbar am-fl">
                             <div class="am-btn-group am-btn-group-xs">
-                                {{--<button type="button" class="am-btn am-btn-default"><span class="am-icon-plus"></span> 新增</button>--}}
-                                {{--<button type="button" class="am-btn am-btn-default"><span class="am-icon-save"></span> 保存</button>--}}
-                                {{--<button type="button" class="am-btn am-btn-default"><span class="am-icon-archive"></span> 审核</button>--}}
                                 <button class="am-btn am-btn-danger am-btn-xs"><span
                                             class="am-icon-trash-o"></span> 批量删除
                                 </button>
@@ -56,7 +53,6 @@
 
             <div class="am-g">
                 <div class="am-u-sm-12">
-                    <form class="am-form">
                         <table class="am-table am-table-striped am-table-hover table-main">
                             <thead>
                             <tr>
@@ -72,7 +68,7 @@
                             <tbody>
                             @foreach($posts as $post)
                                 <tr>
-                                    <td><input type="checkbox"/></td>
+                                    <td><label><input type="checkbox"/></label></td>
                                     <td>
                                         @if($post->is_top==1)
                                             <span class="am-icon-arrow-up"></span>
@@ -85,7 +81,6 @@
                                     <td>
                                         <div class="am-btn-toolbar">
                                             <div class="am-btn-group am-btn-group-xs">
-                                                {{--<button class="am-btn am-btn-default am-btn-xs am-text-secondary"><span class="am-icon-pencil-square-o"></span> 编辑</button>--}}
                                                 <form method="post" action="/post_up/{{$post->post_id}}"
                                                       class="btn-group">
                                                     {{ csrf_field() }}
@@ -131,18 +126,14 @@
                         </div>
                         <hr/>
                         <p>注：别瞎删哦，考虑每个人的话语权~~求同存异</p>
-                        <p>and: 神奇之bug，可能是应用的js里有点毛病。第一个列表项不能置顶，影响不算大，木有精力debug</p>
-                    </form>
                 </div>
 
             </div>
-            .
         </div>
     </div>
 @endsection
 
 @section('script')
-    <!--[if (gte IE 9)|!(IE)]><!-->
     <script src="/js/jquery.min.js"></script>
     <script src="/js/amazeui.min.js"></script>
 @endsection
