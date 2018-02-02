@@ -8,7 +8,6 @@
 @section('content')
     <div class="container">
         <div class="col-md-10 content-left single-post">
-            {{--<div class="blog-posts">--}}
             <h3 class="post">{{$post->title}}</h3>
             <div class="last-article">
                 <ul class="categories">
@@ -51,12 +50,11 @@
                                 <ul>
                                     <li>{{$reply->created_at}}</li>
                                     {{--<li>--}}
-                                    <form method="post" action="/delete_reply/{{$post->post_id}}/{{$reply->reply_id}}">
-                                        {{csrf_field()}}
-                                        {{ method_field('DELETE') }}
-                                        <button class="am-btn am-btn-warning am-btn-xs">
-                                            <span class="am-icon-trash-o"></span>删除</button>
-                                    </form>
+                                    <a href="/delete_reply/{{$post->post_id}}/{{$reply->reply_id}}" type='submit'
+                                       data-method="delete" data-token="{{csrf_token()}}" data-confirm="三思而后行~覆水难收"
+                                       class="am-btn am-btn-danger am-btn-xs">
+                                        <span class="am-icon-trash-o"></span>删除
+                                    </a>
                                     {{--</li>--}}
                                 </ul>
 
@@ -66,7 +64,7 @@
                     @endforeach
                     <div class="clearfix"></div>
                 </div>
-                {{--</div>--}}
             </div>
         </div>
+    </div>
 @endsection
