@@ -30,7 +30,7 @@
                             <div class="am-form-group am-margin-left am-fl">
                                 <select>
                                     <option value="option1">所有类别</option>
-                                    <option value="option2">IT业界</option>
+                                    <option value="option2">IT</option>
                                     <option value="option3">情感</option>
 
                                 </select>
@@ -38,16 +38,20 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="am-u-md-3 am-cf">
                     <div class="am-fr">
-                        <div class="am-input-group am-input-group-sm">
-                            <input type="text" class="am-form-field">
-                            <span class="am-input-group-btn">
-                  <button class="am-btn am-btn-default" type="button">搜索</button>
-                </span>
-                        </div>
+                        <form method="post" action="/search_post">
+                            {{ csrf_field() }}
+                            <div class="am-input-group am-input-group-sm">
+                                <input type="text" class="am-form-field" name="search_title">
+                                <span class="am-input-group-btn"><button
+                                            class="am-btn am-btn-default">搜索</button></span>
+                            </div>
+                        </form>
                     </div>
                 </div>
+
             </div>
 
             <div class="am-g">
@@ -74,7 +78,7 @@
                                             <span class="am-icon-arrow-up"></span>
                                         @endif
                                         {{$post->post_id}}</td>
-                                    <td>{{$post->title}}</td>
+                                    <td><a href="/post/{{$post->post_id}}"> {{$post->title}}</a></td>
                                     <td>{{$post->category}}</td>
                                     <td>{{$post->nickname}}</td>
                                     <td>{{$post->updated_at}}</td>
@@ -131,7 +135,8 @@
                     </form>
                 </div>
 
-            </div>.
+            </div>
+            .
         </div>
     </div>
 @endsection
