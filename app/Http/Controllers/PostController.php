@@ -51,4 +51,17 @@ class PostController extends AuthedController
         post_reply::destroy($reply);
         return redirect('/post/' . $post);
     }
+
+    public function article(){
+        $post = new post();
+        $post->user_id = 1;
+        $post->title = request('title');
+        $post->text=request('description');
+        $post->is_top = 1;
+        $post->picture_count = 0;
+        $post->category = '管理员';
+        $post->save();
+        return redirect('/post_admin');
+    }
+
 }

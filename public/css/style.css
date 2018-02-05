@@ -89,13 +89,6 @@ label{
 }
 .logo a {
 }
-/*.navigation {*/
-    /*margin-top: 15px;*/
-/*}*/
-/*.navbar-nav {*/
-	/*float: left;*/
-	/*margin: 0;*/
-/*}*/
 .caret {
 	margin-left: 3px;
 }
@@ -137,72 +130,6 @@ label{
 .content.black p a {
 	color: #08c;
 }
-/*.navbar {*/
-	/*position: relative;*/
-	/*min-height: 50px;*/
-	/*margin-bottom: 0!important;*/
-	/*border: 1px solid transparent;*/
-/*}*/
-/*.navbar-default {*/
-	/*background-color: #fff;*/
-	/*border-color: #fff;*/
-/*}*/
-/*.navbar-brand {*/
-	/*float: left;*/
-	/*padding: 7px 0 0 0!important;*/
-	/*font-size: 18px;*/
-	/*line-height: 0px!important;*/
-	/*height: 0px!important;*/
-	/*text-transform: uppercase;*/
-/*}*/
-/*.navbar-default .navbar-nav>li>a {*/
-	/*color: #282828;*/
-	/*font-size: 1.4em;*/
-/*}*/
-/*.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {*/
-	/*color: #84754e;*/
-	/*background-color: #fff;*/
-/*}*/
-/*.navbar-nav > li {*/
-	/*margin: 15px 35px 0 0;*/
-/*}*/
-/*.navbar-nav>li>a {*/
-	/*padding: 0px;*/
-/*}*/
-/*.navbar-default .navbar-nav>li>a:hover,.navbar-default .navbar-nav>li>a.active {*/
-	/*color:#84754e;*/
-/*}*/
-/*.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:hover, .navbar-default .navbar-nav>.open>a:focus {*/
-	/*background-color: #fff;*/
-	/*color: #000;*/
-/*}*/
-/*.navbar-default .navbar-brand span{*/
-	/*color:#ee5656!important;*/
-/*}*/
-/*.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {*/
-	/*background-color: #84754E;*/
-/*}*/
-/*.navbar-default .navbar-toggle .icon-bar {*/
-	/*background-color:#84754E;*/
-/*}*/
-/*.navbar-toggle {*/
-	/*position: relative;*/
-	/*float: right;*/
-	/*margin-right: 0;*/
-	/*padding: 9px 10px;*/
-	/*margin-top: 0px;*/
-	/*margin-bottom: 8px;*/
-	/*background-color: #F9F9F9!important;*/
-	/*background-image: none;*/
-	/*border: 1px solid transparent;*/
-	/*border-radius: 4px;*/
-	/*-ms-border-radius: 4px;*/
-	/*-o-border-radius: 4px;*/
-	/*-webkit-border-radius: 4px;*/
-/*}*/
-/*.navbar-default .navbar-toggle {*/
-	/*border-color: #84754E;*/
-/*}*/
 .dropdown-menu .divider {
 	height: 0;
 	margin: 0;
